@@ -1,0 +1,85 @@
+Bash = Bourne Again Shell
+
+create directory = mkdir NAME
+
+//ls List
+
+show all the hidden folders = ls -a
+
+show all the folders = ls
+
+//cd Change Directory
+
+go to the directory = cd name or cd name/blablabla
+
+back up directory = cd ~
+
+back to parents one level = cd ..
+
+// tricks
+
+option + mouse click go to part of the work you want
+
+control + A = beginner line
+
+control + E = end of the line
+
+up and down = navigate to commands
+
+control + U = clear the entire line
+
+//creating
+
+mkdir NAME
+
+// opening
+
+cd NAME
+
+// creating file
+
+touch NAME.txt
+
+//open file
+
+open NAME.txt
+
+// open with specific app
+
+open -a NAMEAPP NAME.txt
+
+// delete
+
+rm NAME.txt
+
+// delete all files inside the folder
+
+rm *
+
+// see what folder you are in
+
+pwd
+
+// delete directory
+
+rm -r NAME/
+
+// erase entire hard disk *DANGER*
+
+sudo rm -rf --no-preserve-root/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
