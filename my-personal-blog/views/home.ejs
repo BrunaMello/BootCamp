@@ -1,0 +1,23 @@
+<%- include('partials/header') -%>
+
+
+
+
+<div class="container-fluid">
+<h1>HOME</h1>
+
+<!--<p><%= homeStartingContent %></p>-->
+
+
+    <% blogPosts.forEach(function (post) { %>
+
+        <h1> <%=post.postTitle%> </h1>
+        <p> <%=post.postBody.substring(0, 100) + '...'%> </p>
+        <a href="http://localhost:3000/posts/<%=post.postTitle%>">Read More</a>
+
+    <% }) %>
+
+
+</div>
+<%- include('partials/footer') -%>
+

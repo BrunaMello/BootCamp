@@ -1,0 +1,25 @@
+<%- include('partials/header') -%>
+
+<div class="container-fluid">
+
+<h1>POST CONTENT</h1>
+
+<form action="/content" method="post">
+
+    <div class="form-group">
+        <label for="title">Title</label><br>
+        <input class="form-control" type="text" name="postTitle" placeholder="Title">
+    </div>
+
+    <div class="form-group">
+    <label for="textContent">Content</label><br>
+    <textarea class="form-control" id="textContent" name="postBody" rows="6" cols="50"></textarea>
+    </div>
+
+    <button type="submit" name="buttonContent" value="sendContent" class="btn btn-primary">Publish</button>
+</form>
+
+</div>
+
+
+<%- include('partials/footer') -%>
