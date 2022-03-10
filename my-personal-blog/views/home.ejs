@@ -9,12 +9,12 @@
 <!--<p><%= homeStartingContent %></p>-->
 
 
-    <% blogPosts.forEach(function (post) { %>
+    <% newListPost.forEach(function (post) { %>
 
-        <h1> <%=post.postTitle%> </h1>
-        <p> <%=post.postBody.substring(0, 100) + '...'%> </p>
-        <a href="http://localhost:3000/posts/<%=post.postTitle%>">Read More</a>
-
+        <h1> <%=post.title%> </h1>
+        <p> <%=post.content.substring(0, 100) + '...'%> </p>
+        <a href="http://localhost:3000/posts/<%=post._id%>">Read More</a>
+        <input type="hidden" name="idPost" value="<%= post._id%>">
     <% }) %>
 
 

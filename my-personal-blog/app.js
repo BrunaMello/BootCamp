@@ -2,6 +2,26 @@ const express = require('express');
 const bodyParser= require('body-parser');
 const {request} = require("express");
 const _ = require("lodash");
+const mongoose = require('mongoose');
+
+
+//mongoose conect
+mongoose.connect('mongodb+srv://brunamello:Test123@cluster0.spz2a.mongodb.net/blogDB')
+const { Schema } = mongoose;
+
+//Schemas
+const postSchema = new Schema({
+    title: {
+        type: String,
+    },
+    content: {
+        type: String,
+    }
+})
+
+//Models
+const Post = mongoose.model('Post', postSchema);
+
 
 
 //use modules
@@ -23,14 +43,13 @@ const contactContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 
 const contents = ['Fist input'];
 
-let blogPosts = [];
-
-
 
 //gets
 app.get('/home', function (req,res) {
 
-    res.render('home', {homeStartingContent: homeStartingContent, blogPosts: blogPosts});
+    Post.find({}, function (err, posts) {
+        res.render('home', {homeStartingContent: homeStartingContent, newListPost: posts})
+    })
 });
 
 app.get('/about', function (req,res) {
@@ -48,22 +67,12 @@ app.get('/content', function (req,res) {
     res.render('content', {contents: contents});
 });
 
-app.get('/posts/:postName', function (req,res) {
-    const idParam = _.lowerCase(req.params.postName);
+app.get('/posts/:idPost', function (req,res) {
+    const idParam = req.params.idPost;
 
-    blogPosts.forEach(function (postBlog) {
-        storedTitle = _.lowerCase(postBlog.postTitle);
-
-        if (storedTitle === idParam) {
-            res.render('post', {
-                title: postBlog.postTitle,
-                content: postBlog.postBody });
-        }
-    });
-
-
-
-
+    Post.findOne({_id: idParam}, function (err, post) {
+        res.render('post', {title: post.title, content: post.content})
+    })
 
 });
 
@@ -71,11 +80,16 @@ app.get('/posts/:postName', function (req,res) {
 
 app.post('/content', function (req, res) {
 
-    const postBlog = { postTitle: req.body.postTitle , postBody: req.body.postBody};
+    const post = new Post({
+        title: req.body.postTitle,
+        content: req.body.postBody
+    })
 
-    blogPosts.push(postBlog);
-
-    res.redirect('/home');
+    post.save(function (err) {
+        if (!err){
+            res.redirect('/home');
+        }
+    });
 
 })
 
