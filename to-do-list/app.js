@@ -15,7 +15,7 @@ app.use(bodeParser.urlencoded({extended: true}));
 app.use('*/css', express.static('public/css'));
 
 //mongoDB
-mongoose.connect('mongodb://localhost:27017/todolistDB');
+mongoose.connect('mongodb+srv://brunamello:Test123@cluster0.spz2a.mongodb.net/todolistDB');
 const { Schema } = mongoose;
 
 //Schemas
