@@ -1,21 +1,33 @@
 import '../App.css';
 import Card from "./Card";
+import contacts from "../contacts";
 
 function App() {
+
+
+
   return (
       <div>
+          <h1>My Contacts</h1>
           <Card
-              name="Beyonce"
-              img="https://e3.365dm.com/18/12/768x432/skynews-beyonce-beyonce-jay-z_4507925.jpg?20181203185757"
-              tel="+123 456 789"
-              email="b@beyonce.com"
+              name={contacts[0].name}
+              img={contacts[0].imgURL}
+              tel={contacts[0].phone}
+              email={contacts[0].email}
           />
 
           <Card
-              name="Jack Bauer"
-              img="https://s.yimg.com/os/creatr-uploaded-images/2021-11/f5f8f1f0-3e3e-11ec-bfee-29cb63bf1393"
-              tel="+123 456 789"
-              email="jb@jackbauer.com"
+              name={contacts[1].name}
+              img={contacts[1].imgURL}
+              tel={contacts[1].phone}
+              email={contacts[1].email}
+          />
+
+          <Card
+              name={contacts[2].name}
+              img={contacts[2].imgURL}
+              tel={contacts[2].phone}
+              email={contacts[2].email}
           />
       </div>
 
