@@ -1,6 +1,7 @@
 import '../App.css';
 import Card from "./Card";
 import contacts from "../contacts";
+import Avatar from "./Avatar";
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
   return (
       <div>
           <h1>My Contacts</h1>
+          <Avatar img="https://avatars.githubusercontent.com/u/38960731?v=4"/>
           <Card
               name={contacts[0].name}
               img={contacts[0].imgURL}
