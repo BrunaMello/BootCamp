@@ -5,14 +5,20 @@ var isLoggedIn = false;
 
 const currentTime = new Date().getHours();
 
+var userIsRegistered = true;
+
 function App() {
   return (
       <div className="container">
-          //Ternary
-          {isLoggedIn ? <h1>Hello</h1> : <Login />}
+          <Login
+              isRegistered={userIsRegistered}
+          />
 
-          //AND operator
-          {currentTime > 12 && <h1>Still working?</h1>}
+          {/*//Ternary*/}
+          {/*/!*{isLoggedIn ? <h1>Hello</h1> : <Login />}*!/*/}
+
+          {/*//AND operator*/}
+          {/*/!*{currentTime > 12 && <h1>Still working?</h1>}*!/*/}
       </div>
   )
 }

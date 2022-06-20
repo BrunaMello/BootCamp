@@ -1,7 +1,7 @@
 import React from "react";
 import Input from "./Input";
 
-function Login() {
+function Login(props) {
     return (
         <div>
             <form className="form">
@@ -13,9 +13,11 @@ function Login() {
                 type="password"
                 placeholder="Password"
                 />
-
-
-                <button type="submit">Login</button>
+                {props.isRegistered === false && <Input
+                    type="password"
+                    placeholder="Password"
+                />}
+                <button type="submit">{props.isRegistered ? "Login" : "Register"}</button>
             </form>
         </div>
     )
