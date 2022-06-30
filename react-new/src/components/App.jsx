@@ -13,15 +13,24 @@ function createCard(contact) {
     />
 }
 
+//Imperative Programming
+function declarativeProg() {
+    var isDone = false;
+
+    const strikeThrough = { textDecoration: "line-through" };
+
+    return <h1 style={isDone ? strikeThrough : null}>My Contacts</h1>
+}
+
+
 function App() {
-
-
 
   return (
       <div>
-          <h1>My Contacts</h1>
+          {declarativeProg()}
           <Avatar img="https://avatars.githubusercontent.com/u/38960731?v=4"/>
           {contacts.map(createCard)}
+
 
 
           {/*<Card*/}

@@ -8,3 +8,7 @@ ReactDOM.render(
     document.getElementById("root"));
 
 
+//Imperative Programming
+//document.getElementById("root").style.textDecoration = "line-through";
+
+
