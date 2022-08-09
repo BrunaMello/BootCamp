@@ -2,6 +2,7 @@ import '../App.css';
 import Card from "./Card";
 import contacts from "../contacts";
 import Avatar from "./Avatar";
+import React from "react";
 
 function createCard(contact) {
     return <Card
@@ -25,12 +26,32 @@ function declarativeProg() {
 
 function App() {
 
+    //Hooks useState
+    const [count, setCount] = React.useState(0);
+
+    //destructuring example
+    //const [red, green, blue] = [9, 132, 227]
+
+
+    function increase() {
+        setCount(count + 1);
+    }
+
+    function decrease() {
+        setCount(count - 1);
+    }
+
   return (
       <div>
           {declarativeProg()}
           <Avatar img="https://avatars.githubusercontent.com/u/38960731?v=4"/>
-          {contacts.map(createCard)}
 
+
+          <h1>{count}</h1>
+          <button onClick={increase}>+</button>
+          <button onClick={decrease}>-</button>
+
+          {contacts.map(createCard)}
 
 
           {/*<Card*/}
