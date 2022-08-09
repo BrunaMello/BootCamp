@@ -2,7 +2,7 @@ import '../App.css';
 import Card from "./Card";
 import contacts from "../contacts";
 import Avatar from "./Avatar";
-import React from "react";
+import React, {useState} from "react";
 
 function createCard(contact) {
     return <Card
@@ -41,15 +41,36 @@ function App() {
         setCount(count - 1);
     }
 
+    //hook pratice
+
+    setInterval(updateTime, 1000);
+
+    const now = new Date().toLocaleTimeString();
+
+    const [time, setTime] = useState(now);
+
+    function updateTime() {
+        const newTime = new Date().toLocaleTimeString()
+        setTime(newTime);
+    }
+
   return (
       <div>
           {declarativeProg()}
           <Avatar img="https://avatars.githubusercontent.com/u/38960731?v=4"/>
+          <br></br>
+          <br></br>
+          <br></br>
+
+          <button onClick={updateTime}>GET TIME</button>
+          <br></br>
+          <br></br>
+          <a>{time}</a>
 
 
-          <h1>{count}</h1>
-          <button onClick={increase}>+</button>
-          <button onClick={decrease}>-</button>
+          {/*<h1>{count}</h1>*/}
+          {/*<button onClick={increase}>+</button>*/}
+          {/*<button onClick={decrease}>-</button>*/}
 
           {contacts.map(createCard)}
 
