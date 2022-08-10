@@ -3,10 +3,11 @@ import ReactDOM from "react-dom";
 import App from "./components/App";
 import List from "./components/List";
 import ES6 from "./components/ES6Destructuring";
+import EventHandling from "./components/EventHandling";
 
 
 ReactDOM.render(
-    <ES6 />,
+    <EventHandling />,
 
     document.getElementById("root"));
 
