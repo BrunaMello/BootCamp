@@ -4,12 +4,20 @@ import App from "./components/App";
 import List from "./components/List";
 import ES6 from "./components/ES6Destructuring";
 import EventHandling from "./components/EventHandling";
+import ReactForms from "./components/ReactForms";
+import {createRoot} from "react-dom/client";
 
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
 
-ReactDOM.render(
-    <EventHandling />,
+root.render(
+    <ReactForms />
+);
 
-    document.getElementById("root"));
+// ReactDOM.render(
+//     <ReactForms />,
+//
+//     document.getElementById("root"));
 
 
 //Imperative Programming
