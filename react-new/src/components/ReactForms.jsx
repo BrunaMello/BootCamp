@@ -2,10 +2,10 @@ import React, {useState} from "react";
 
 function ReactForms() {
 
-    const [fullName, setFullName] = useState({
+    const [contact, setContact] = useState({
         fName: "",
-        lName: ""
-
+        lName: "",
+        email: ""
     });
 
     // const [headingText, setHandingText] = useState("");
@@ -22,18 +22,26 @@ function ReactForms() {
 
     function handleChange(event) {
         const newValue = event.target.value;
-        const inputName = event.target.name;
+        const inputContact = event.target.name;
 
-        setFullName(prevValue => {
-            if (inputName === "fName") {
+        setContact(prevValue => {
+            if (inputContact === "fName") {
                 return {
                     fName: newValue,
-                    lName: prevValue.lName
+                    lName: prevValue.lName,
+                    email: prevValue.email
                 };
-            } else if (inputName === "lName") {
+            } else if (inputContact === "lName") {
                 return {
                     fName: prevValue.fName,
-                    lName: newValue
+                    lName: newValue,
+                    email: prevValue.email
+                };
+            } else if (inputContact === "email") {
+                return {
+                    fName: prevValue.fName,
+                    lName: prevValue.lName,
+                    email: newValue
                 };
             }
         });
@@ -41,23 +49,35 @@ function ReactForms() {
 
     return (
         <div>
-            <h1>Hello {fullName.fName} {fullName.lName}</h1>
+            <h1>Hello {contact.fName} {contact.lName}</h1>
+            <a type="email">{contact.email}</a>
             <form>
                 <input
                     name="fName"
                     onChange={handleChange}
                     type="text"
                     placeholder="What's your name"
-                    value={fullName.fName}
+                    value={contact.fName}
                 />
                 <br/>
                 <br/>
+
                 <input
                     name="lName"
                     onChange={handleChange}
                     type="text"
                     placeholder="What's your last name"
-                    value={fullName.lName}
+                    value={contact.lName}
+                />
+                <br/>
+                <br/>
+
+                <input
+                    name="email"
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="What's your email"
+                    value={contact.email}
                 />
                 <br/>
                 <br/>
