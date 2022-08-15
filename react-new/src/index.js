@@ -6,12 +6,13 @@ import ES6 from "./components/ES6Destructuring";
 import EventHandling from "./components/EventHandling";
 import ReactForms from "./components/ReactForms";
 import {createRoot} from "react-dom/client";
+import ClassComponent from "./components/Class Component";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 root.render(
-    <ReactForms />
+    <ClassComponent />
 );
 
 // ReactDOM.render(
