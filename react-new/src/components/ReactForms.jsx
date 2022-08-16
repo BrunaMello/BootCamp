@@ -21,30 +21,41 @@ function ReactForms() {
     // }
 
     function handleChange(event) {
-        const newValue = event.target.value;
-        const inputContact = event.target.name;
+        // const newValue = event.target.value;
+        // const inputContact = event.target.name;
+
+        //using Spread Operator
+        const { name, value } = event.target;
 
         setContact(prevValue => {
-            if (inputContact === "fName") {
-                return {
-                    fName: newValue,
-                    lName: prevValue.lName,
-                    email: prevValue.email
-                };
-            } else if (inputContact === "lName") {
-                return {
-                    fName: prevValue.fName,
-                    lName: newValue,
-                    email: prevValue.email
-                };
-            } else if (inputContact === "email") {
-                return {
-                    fName: prevValue.fName,
-                    lName: prevValue.lName,
-                    email: newValue
-                };
+            return {
+                ...prevValue,
+                [name]: value,
             }
         });
+
+        // setContact(prevValue => {
+        //     if (inputContact === "fName") {
+        //         return {
+        //             fName: newValue,
+        //             lName: prevValue.lName,
+        //             email: prevValue.email
+        //         };
+        //     } else if (inputContact === "lName") {
+        //         return {
+        //             fName: prevValue.fName,
+        //             lName: newValue,
+        //             email: prevValue.email
+        //         };
+        //     } else if (inputContact === "email") {
+        //         return {
+        //             fName: prevValue.fName,
+        //             lName: prevValue.lName,
+        //             email: newValue
+        //         };
+        //     }
+        // });
+
     }
 
     return (
